@@ -1,38 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-5.3.8-dist/css/bootstrap.min.css') }}">
-    <title>Document</title>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Business Name</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Up</a>
-                    </li>
-                </ul>
-            </div>
+{% extends 'base.html' %}
+
+{% block title %}Delver{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Delver</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign Up</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+    {% endblock %}
     
     <h1 style="color: navy">Welcome {{name}} To My Flask App!</h1>
     <p>Loaded from an HTML Template!</p>
     <script src="{{ url_for('static', filename='bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js') }}"></script>
     
+
+    {% block content %}
+    <h1>This is my Flask app!</h1>
+    <p>Using Jinja2 & Templates</p>
+
     <div class="card" style="width: 18rem;">
         <img src="{{ url_for('static', filename='images/headshot01.jpg')}}" class="card-img-top" alt="Profile">
         <div class="card-body">
@@ -41,5 +43,5 @@
             <a href="#" class="btn btn-primary">View Profile</a>
         </div>
     </div>
-</body>
-</html>
+    {% endblock %}
+    {% block footer %} {% endblock %}
